@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying search forms in Dancer\'s Den
+ * The template for displaying search forms in Dancer's Den
  *
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 ?>
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">

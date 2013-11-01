@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages (Not Found).
  *
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 
 get_header(); ?>

@@ -1,8 +1,8 @@
 <?php
 /**
- * Dancer\'s Den functions and definitions
+ * Dancer's Den functions and definitions
  *
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 
 /**
@@ -24,7 +24,7 @@ function dancers_den_setup() {
   /**
    * Make theme available for translation
    * Translations can be filed in the /languages/ directory
-   * If you're building a theme based on Dancer\'s Den, use a find and replace
+   * If you're building a theme based on Dancer's Den, use a find and replace
    * to change 'dancers-den' to the name of your theme in all the template files
    */
   load_theme_textdomain( 'dancers-den', get_template_directory() . '/languages' );

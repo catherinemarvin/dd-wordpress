@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 ?>
 

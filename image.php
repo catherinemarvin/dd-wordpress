@@ -2,7 +2,7 @@
 /**
  * The template for displaying image attachments.
  *
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 
 get_header(); ?>

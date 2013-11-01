@@ -7,7 +7,7 @@
  * handled by a callback to dancers_den_comment() which is
  * located in the inc/template-tags.php file.
  *
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 
 /*

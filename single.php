@@ -2,7 +2,7 @@
 /**
  * The Template for displaying all single posts.
  *
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 
 get_header(); ?>

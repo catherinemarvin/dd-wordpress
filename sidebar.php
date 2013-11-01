@@ -2,7 +2,7 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 ?>
   <div id="secondary" class="widget-area" role="complementary">

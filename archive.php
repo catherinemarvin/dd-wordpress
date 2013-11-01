@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Dancer\'s Den
+ * @package Dancer's Den
  */
 
 get_header(); ?>
