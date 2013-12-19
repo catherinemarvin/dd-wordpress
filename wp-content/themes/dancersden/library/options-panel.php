@@ -9,11 +9,11 @@ if ( !function_exists( 'optionsframework_init' ) ) {
 /* Set the file path based on whether the Options Framework Theme is a parent theme or child theme */
 
 if ( STYLESHEETPATH == TEMPLATEPATH ) {
-	define('OPTIONS_FRAMEWORK_URL', TEMPLATEPATH . '/admin/');
-	define('OPTIONS_FRAMEWORK_DIRECTORY', get_bloginfo('template_directory') . '/admin/');
+  define('OPTIONS_FRAMEWORK_URL', TEMPLATEPATH . '/admin/');
+  define('OPTIONS_FRAMEWORK_DIRECTORY', get_bloginfo('template_directory') . '/admin/');
 } else {
-	define('OPTIONS_FRAMEWORK_URL', STYLESHEETPATH . '/admin/');
-	define('OPTIONS_FRAMEWORK_DIRECTORY', get_bloginfo('template_directory') . '/admin/');
+  define('OPTIONS_FRAMEWORK_URL', STYLESHEETPATH . '/admin/');
+  define('OPTIONS_FRAMEWORK_DIRECTORY', get_bloginfo('template_directory') . '/admin/');
 }
 
 require_once (get_template_directory() . '/admin/options-framework.php');
@@ -32,30 +32,30 @@ function optionsframework_custom_scripts() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function() {
 
-	jQuery('#showhidden_gradient').click(function() {
-  		jQuery('#section-top_nav_bottom_gradient_color').fadeToggle(400);
-	});
-	
-	if (jQuery('#showhidden_gradient:checked').val() !== undefined) {
-		jQuery('#section-top_nav_bottom_gradient_color').show();
-	}
-	
-	jQuery('#showhidden_themes').click(function() {
-			jQuery('#section-wpbs_theme').fadeToggle(400);
-	});
-	
-	if (jQuery('#showhidden_themes:checked').val() !== undefined) {
-		jQuery('#section-wpbs_theme').show();
-	}
+  jQuery('#showhidden_gradient').click(function() {
+      jQuery('#section-top_nav_bottom_gradient_color').fadeToggle(400);
+  });
+  
+  if (jQuery('#showhidden_gradient:checked').val() !== undefined) {
+    jQuery('#section-top_nav_bottom_gradient_color').show();
+  }
+  
+  jQuery('#showhidden_themes').click(function() {
+      jQuery('#section-wpbs_theme').fadeToggle(400);
+  });
+  
+  if (jQuery('#showhidden_themes:checked').val() !== undefined) {
+    jQuery('#section-wpbs_theme').show();
+  }
 
-	jQuery('#showhidden_slideroptions').click(function() {
-			jQuery('#section-slider_options').fadeToggle(400);
-	});
-	
-	if (jQuery('#showhidden_slideroptions:checked').val() !== undefined) {
-		jQuery('#section-slider_options').show();
-	}
-	
+  jQuery('#showhidden_slideroptions').click(function() {
+      jQuery('#section-slider_options').fadeToggle(400);
+  });
+  
+  if (jQuery('#showhidden_slideroptions:checked').val() !== undefined) {
+    jQuery('#section-slider_options').show();
+  }
+  
 });
 </script>
 
@@ -69,5 +69,5 @@ jQuery(document).ready(function() {
 add_action('after_setup_theme','remove_twentyeleven_options', 100);
 
 function remove_twentyeleven_options() {
-	remove_action( 'admin_menu', 'twentyeleven_theme_options_add_page' );
+  remove_action( 'admin_menu', 'twentyeleven_theme_options_add_page' );
 }

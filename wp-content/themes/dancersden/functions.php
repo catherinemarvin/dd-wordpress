@@ -24,7 +24,7 @@ require_once('library/shortcodes.php');
 // Custom Backend Footer
 add_filter('admin_footer_text', 'bones_custom_admin_footer');
 function bones_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://320press.com" target="_blank">320press</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.';
+  echo '<span id="footer-thankyou">Developed by <a href="http://320press.com" target="_blank">320press</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.';
 }
 
 // adding it to the admin area
@@ -46,27 +46,27 @@ if ( ! isset( $content_width ) ) $content_width = 580;
  * @note may be called from http://example.com/wp-activate.php?key=xxx where the plugins are not loaded.
  */
 function bones_filter_title( $title, $sep ) {
-	global $paged, $page;
+  global $paged, $page;
 
-	if ( is_feed() ) {
-		return $title;
-	}
+  if ( is_feed() ) {
+    return $title;
+  }
 
-	// Add the site name.
-	$title .= get_bloginfo( 'name' );
+  // Add the site name.
+  $title .= get_bloginfo( 'name' );
 
-	// Add the site description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title = "$title $sep $site_description";
-	}
+  // Add the site description for the home/front page.
+  $site_description = get_bloginfo( 'description', 'display' );
+  if ( $site_description && ( is_home() || is_front_page() ) ) {
+    $title = "$title $sep $site_description";
+  }
 
-	// Add a page number if necessary.
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'bonestheme' ), max( $paged, $page ) );
-	}
+  // Add a page number if necessary.
+  if ( $paged >= 2 || $page >= 2 ) {
+    $title = "$title $sep " . sprintf( __( 'Page %s', 'bonestheme' ), max( $paged, $page ) );
+  }
 
-	return $title;
+  return $title;
 }
 add_filter( 'wp_title', 'bones_filter_title', 10, 2 );
 
@@ -104,23 +104,23 @@ you like. Enjoy!
 if ( ! function_exists( 'bones_register_sidebars' ) ) {
 function bones_register_sidebars() {
     register_sidebar(array(
-    	'id' => 'sidebar1',
-    	'name' => 'Main Sidebar',
-    	'description' => 'Used on every page BUT the homepage page template.',
-    	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
-    	'after_title' => '</h4>',
+      'id' => 'sidebar1',
+      'name' => 'Main Sidebar',
+      'description' => 'Used on every page BUT the homepage page template.',
+      'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'after_widget' => '</div>',
+      'before_title' => '<h4 class="widgettitle">',
+      'after_title' => '</h4>',
     ));
     
     register_sidebar(array(
-    	'id' => 'sidebar2',
-    	'name' => 'Homepage Sidebar',
-    	'description' => 'Used only on the homepage page template.',
-    	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
-    	'after_title' => '</h4>',
+      'id' => 'sidebar2',
+      'name' => 'Homepage Sidebar',
+      'description' => 'Used only on the homepage page template.',
+      'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'after_widget' => '</div>',
+      'before_title' => '<h4 class="widgettitle">',
+      'after_title' => '</h4>',
     ));
     
     register_sidebar(array(
@@ -168,34 +168,34 @@ function bones_register_sidebars() {
 } } // don't remove this bracket!
 
 /************* COMMENT LAYOUT *********************/
-		
+    
 // Comment Layout
 function bones_comments($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
-	<li <?php comment_class(); ?>>
-		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
-			<div class="comment-author vcard row-fluid clearfix">
-				<div class="avatar span3">
-					<?php echo get_avatar( $comment, $size='75' ); ?>
-				</div>
-				<div class="span9 comment-text">
-					<?php printf('<h4>%s</h4>', get_comment_author_link()) ?>
-					<?php edit_comment_link(__('Edit','bonestheme'),'<span class="edit-comment btn btn-small btn-info"><i class="icon-white icon-pencil"></i>','</span>') ?>
+  <li <?php comment_class(); ?>>
+    <article id="comment-<?php comment_ID(); ?>" class="clearfix">
+      <div class="comment-author vcard row-fluid clearfix">
+        <div class="avatar span3">
+          <?php echo get_avatar( $comment, $size='75' ); ?>
+        </div>
+        <div class="span9 comment-text">
+          <?php printf('<h4>%s</h4>', get_comment_author_link()) ?>
+          <?php edit_comment_link(__('Edit','bonestheme'),'<span class="edit-comment btn btn-small btn-info"><i class="icon-white icon-pencil"></i>','</span>') ?>
                     
                     <?php if ($comment->comment_approved == '0') : ?>
-       					<div class="alert-message success">
-          				<p><?php _e('Your comment is awaiting moderation.','bonestheme') ?></p>
-          				</div>
-					<?php endif; ?>
+                 <div class="alert-message success">
+                  <p><?php _e('Your comment is awaiting moderation.','bonestheme') ?></p>
+                  </div>
+          <?php endif; ?>
                     
                     <?php comment_text() ?>
                     
                     <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
                     
-					<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+          <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
                 </div>
-			</div>
-		</article>
+      </div>
+    </article>
     <!-- </li> is added by wordpress automatically -->
 <?php
 } // don't remove this bracket!
@@ -212,13 +212,13 @@ function list_pings($comment, $args, $depth) {
 // Only display comments in comment count (which isn't currently displayed in wp-bootstrap, but i'm putting this in now so i don't forget to later)
 add_filter('get_comments_number', 'comment_count', 0);
 function comment_count( $count ) {
-	if ( ! is_admin() ) {
-		global $id;
-	    $comments_by_type = separate_comments(get_comments('status=approve&post_id=' . $id));
-	    return count($comments_by_type['comment']);
-	} else {
-	    return $count;
-	}
+  if ( ! is_admin() ) {
+    global $id;
+      $comments_by_type = separate_comments(get_comments('status=approve&post_id=' . $id));
+      return count($comments_by_type['comment']);
+  } else {
+      return $count;
+  }
 }
 
 /************* SEARCH FORM LAYOUT *****************/
@@ -238,14 +238,14 @@ function bones_wpsearch( $form ) {
 add_filter( 'the_password_form', 'custom_password_form' );
 
 function custom_password_form() {
-	global $post;
-	$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-	$o = '<div class="clearfix"><form class="protected-post-form" action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post">
-	' . '<p>' . __( "This post is password protected. To view it please enter your password below:" ,'bonestheme') . '</p>' . '
-	<label for="' . $label . '">' . __( "Password:" ,'bonestheme') . ' </label><div class="input-append"><input name="post_password" id="' . $label . '" type="password" size="20" /><input type="submit" name="Submit" class="btn btn-primary" value="' . esc_attr__( "Submit",'bonestheme' ) . '" /></div>
-	</form></div>
-	';
-	return $o;
+  global $post;
+  $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+  $o = '<div class="clearfix"><form class="protected-post-form" action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post">
+  ' . '<p>' . __( "This post is password protected. To view it please enter your password below:" ,'bonestheme') . '</p>' . '
+  <label for="' . $label . '">' . __( "Password:" ,'bonestheme') . ' </label><div class="input-append"><input name="post_password" id="' . $label . '" type="password" size="20" /><input type="submit" name="Submit" class="btn btn-primary" value="' . esc_attr__( "Submit",'bonestheme' ) . '" /></div>
+  </form></div>
+  ';
+  return $o;
 }
 
 /*********** update standard wp tag cloud widget so it looks better ************/
@@ -253,11 +253,11 @@ function custom_password_form() {
 add_filter( 'widget_tag_cloud_args', 'my_widget_tag_cloud_args' );
 
 function my_widget_tag_cloud_args( $args ) {
-	$args['number'] = 20; // show less tags
-	$args['largest'] = 9.75; // make largest and smallest the same - i don't like the varying font-size look
-	$args['smallest'] = 9.75;
-	$args['unit'] = 'px';
-	return $args;
+  $args['number'] = 20; // show less tags
+  $args['largest'] = 9.75; // make largest and smallest the same - i don't like the varying font-size look
+  $args['smallest'] = 9.75;
+  $args['unit'] = 'px';
+  return $args;
 }
 
 // filter tag cloud output so that it can be styled by CSS
@@ -267,7 +267,7 @@ function add_tag_class( $taglinks ) {
     $term_slug = "(get_tag($2) ? get_tag($2)->slug : get_category($2)->slug)";
 
         foreach( $tags as $tag ) {
-        	$tagn[] = preg_replace($regex, "('$1$2 label tag-'.$term_slug.'$3')", $tag );
+          $tagn[] = preg_replace($regex, "('$1$2 label tag-'.$term_slug.'$3')", $tag );
         }
 
     $taglinks = implode('</a>', $tagn);
@@ -289,14 +289,14 @@ add_filter( 'widget_text', 'do_shortcode' );
 
 // Disable jump in 'read more' link
 function remove_more_jump_link( $link ) {
-	$offset = strpos($link, '#more-');
-	if ( $offset ) {
-		$end = strpos( $link, '"',$offset );
-	}
-	if ( $end ) {
-		$link = substr_replace( $link, '', $offset, $end-$offset );
-	}
-	return $link;
+  $offset = strpos($link, '#more-');
+  if ( $offset ) {
+    $end = strpos( $link, '"',$offset );
+  }
+  if ( $end ) {
+    $link = substr_replace( $link, '', $offset, $end-$offset );
+  }
+  return $link;
 }
 add_filter( 'the_content_more_link', 'remove_more_jump_link' );
 
@@ -311,21 +311,21 @@ function remove_thumbnail_dimensions( $html ) {
 
 // Add the Meta Box to the homepage template
 function add_homepage_meta_box() {  
-	global $post;
+  global $post;
 
-	// Only add homepage meta box if template being used is the homepage template
-	// $post_id = isset($_GET['post']) ? $_GET['post'] : (isset($_POST['post_ID']) ? $_POST['post_ID'] : "");
-	$post_id = $post->ID;
-	$template_file = get_post_meta($post_id,'_wp_page_template',TRUE);
+  // Only add homepage meta box if template being used is the homepage template
+  // $post_id = isset($_GET['post']) ? $_GET['post'] : (isset($_POST['post_ID']) ? $_POST['post_ID'] : "");
+  $post_id = $post->ID;
+  $template_file = get_post_meta($post_id,'_wp_page_template',TRUE);
 
-	if ( $template_file == 'page-homepage.php' ){
-	    add_meta_box(  
-	        'homepage_meta_box', // $id  
-	        'Optional Homepage Tagline', // $title  
-	        'show_homepage_meta_box', // $callback  
-	        'page', // $page  
-	        'normal', // $context  
-	        'high'); // $priority  
+  if ( $template_file == 'page-homepage.php' ){
+      add_meta_box(  
+          'homepage_meta_box', // $id  
+          'Optional Homepage Tagline', // $title  
+          'show_homepage_meta_box', // $callback  
+          'page', // $page  
+          'normal', // $context  
+          'high'); // $priority  
     }
 }
 
@@ -563,9 +563,9 @@ add_editor_style('editor-style.css');
 add_filter('nav_menu_css_class', 'add_active_class', 10, 2 );
 
 function add_active_class($classes, $item) {
-	if( $item->menu_item_parent == 0 && in_array('current-menu-item', $classes) ) {
+  if( $item->menu_item_parent == 0 && in_array('current-menu-item', $classes) ) {
     $classes[] = "active";
-	}
+  }
   
   return $classes;
 }
